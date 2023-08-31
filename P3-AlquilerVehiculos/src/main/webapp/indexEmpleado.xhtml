@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h2>
+        <h:outputLabel value="Lista de Empleados"/>
+    </h2>
+    <h:form>
+        <!--agregado-->
+        <p:commandButton value="Nuevo Empleado" action="#{empleadoBean.nuevo()}"/>
+        <p:dataTable value="#{empleadoBean.obtenerEmpleados()}" var="empleado" styleClass="tab">
+
+            <p:column>
+                <f:facet name="header">Nombres</f:facet>
+                <p:outputLabel value="#{empleado.Nombres}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">Apellidos</f:facet>
+                <p:outputLabel value="#{empleado.Apellidos}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Direccion</f:facet>
+                <p:outputLabel value="#{empleado.Direccion}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Telefono</f:facet>
+                <p:outputLabel value="#{empleado.Telefono}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Email</f:facet>
+                <p:outputLabel value="#{empleado.CorreoElectronico}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Fecha de contrato</f:facet>
+                <p:outputLabel value="#{empleado.FechaContrato}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Opciones</f:facet>
+                <p:commandButton action="#{empleadoBean.editar(empleado.Id_Empleados)}" value="Editar"/>
+                <p:commandButton action="#{empleadoBean.eliminar(empleado.Id_Empleados)}" value="Eliminar"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</f:view>
+</html>

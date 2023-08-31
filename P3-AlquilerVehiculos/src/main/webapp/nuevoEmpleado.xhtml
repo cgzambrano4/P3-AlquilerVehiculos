@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+   <h:form>
+      <h:panelGrid columns="2" cellspacing="20" border="1">
+         <f:facet name="header">
+            <p:outputLabel value="Guardar Empleado"/>
+         </f:facet>
+
+         <p:outputLabel value="Nombres"/>
+         <p:inputText value="#{empleado.Nombres}"/>
+
+         <p:outputLabel value="Apellidos"/>
+         <p:inputText value="#{empleado.Apellidos}"/>
+
+         <h:outputLabel value="Direccion"/>
+         <p:inputText value="#{empleado.Direccion}"/>
+
+         <h:outputLabel value="Telefono"/>
+         <p:inputText value="#{empleado.Telefono}"/>
+
+         <h:outputLabel value="Correo"/>
+         <p:inputText value="#{empleado.CorreoElectronico}"/>
+
+         <h:outputLabel value="Fecha de contrato"/>
+         <p:inputText value="#{empleado.FechaContrato}"/>
+
+         <f:facet name="footer">
+            <p:commandButton value="Guardar" action="#{empleadoBean.guardar(empleado)}"/>
+         </f:facet>
+      </h:panelGrid>
+   </h:form>
+</f:view>
+</html>
