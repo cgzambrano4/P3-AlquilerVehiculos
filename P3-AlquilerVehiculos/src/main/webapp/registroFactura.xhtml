@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Registro de Factura</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</h:head>
+<h:body>
+    <h2>Registro de Factura</h2>
+
+    <h:form styleClass="form-container">
+        <!-- Campos de la factura -->
+
+        <h:outputLabel value="Empleado:" />
+        <p:selectOneMenu value="#{factura.id_Empleados}">
+            <f:selectItems value="#{empleadoBean.obtenerEmpleados()}" var="empleado"
+                           itemValue="#{empleado.id_Empleados}" itemLabel="#{empleado.nombres}" required="true"  />
+        </p:selectOneMenu>
+
+        <h:outputLabel value="Vehículo:" />
+        <p:selectOneMenu value="#{factura.idVehiculos}">
+            <f:selectItems value="#{autoBean.obtenerAuto()}" var="vehiculo"
+                           itemValue="#{vehiculo.idVehiculos}" itemLabel="#{vehiculo.marca} #{vehiculo.modelo}" required="true"  />
+        </p:selectOneMenu>
+
+
+
+        <p:outputLabel value="Nombre Cliente:" />
+        <p:inputText value="#{factura.nombreCliente}" required="true"  />
+
+        <p:outputLabel value="Cédula Cliente:" />
+        <p:inputText value="#{factura.cedulaCliente}" required="true"  />
+
+        <p:outputLabel value="Direccion" />
+        <p:inputText value="#{factura.direccionCliente}"  required="true"  />
+
+        <h:outputLabel value="Telefono" />
+        <p:inputText value="#{factura.telefonoCliente}" required="true"  />
+
+
+
+
+        <p:calendar id="fechaAlquiler" value="#{factura.fechaAlquiler}" pattern="dd/MM/yyyy">
+            <p:ajax event="dateSelect" update="fechaDevolucion" listener="#{facturaBean.handleFechaAlquilerSelect}" />
+        </p:calendar>
+
+        <p:calendar id="fechaDevolucion" value="#{factura.fechaDevolucion}" pattern="dd/MM/yyyy">
+            <p:ajax event="dateSelect" />
+        </p:calendar>
+
+        <p:outputLabel value="Precio Alquiler por Día:" />
+        <p:inputText value="#{factura.precioAlquilerDia}" required="true" />
+
+        <p:outputLabel value="Abono de Alquiler:" />
+        <p:inputText value="#{factura.abonoAlquiler}" required="true" />
+
+
+
+        <p:commandButton action="#{facturaBean.crear(factura)}" value="Guardar" ajax="false"/>
+    </h:form>
+</h:body>
+</html>
