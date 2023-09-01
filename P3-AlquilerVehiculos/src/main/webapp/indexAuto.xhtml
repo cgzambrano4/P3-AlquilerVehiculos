@@ -18,7 +18,7 @@
             }
 
             .my-table th {
-                background-color: #8e44ad;
+                background-color: #c474ea;
                 color: #fff;
                 text-align: left;
                 padding: 10px;
@@ -62,9 +62,31 @@
     <h2>
         <h:outputLabel value="Lista de Autos"/>
     </h2>
-    <h:form>
-        <h:commandButton style="background-color: #d09be5; color: #fff; padding: 8px 16px; border: 2px solid #cb99e3; cursor: pointer;" value="Nuevo Vehiculo" action="#{autoBean.nuevo()}" />
 
+    <div style="display: flex; gap: 10px; justify-content: center; align-items: center; background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+        <!-- Cuadro 1 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://tomebamba.com.ec/assets/media/content/b-posts/fortuner/imagen1.jpg'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+
+        <!-- Cuadro 2 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://www.ambacar.ec/wp-content/uploads/2021/05/ambacar-suv-dfsk-glory-560-color-negro.jpeg'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+
+        <!-- Cuadro 3 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://www.ramlatam.com/gt/wp-content/uploads/sites/13/vehiculos/ram-1500/ram-trx-e1663941203460.png'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+
+        <!-- Cuadro 4 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMSOVXOg_wYx0J6M4PHttwYLSbKH_iEag8tKdZFKCSJLVZRB4qVGcP5U7p98YbxQcj01BmlQzrehzeMD_CD7Q94BxBdzqaojbmEbCepRtvVK5umoa24c93Gu3tbiQ0mx0vpeneFBSvDkoZcNsK2UhbY6XONrmDD3-dMH5UTsS6b11Gg-4iivzzvwPh/s4134/Lanzamiento:%20Kia%20Sportage%20MY2023%20Precios%200km%202022%202023%20Autoblog%20Uruguay3.jpeg'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+    </div>
+
+
+    <h:form>
         <h:dataTable value="#{autoBean.obtenerAuto()}" var="auto" styleClass="my-table" border="1">
             <!--  <h:column>
                 <f:facet name="header">Id</f:facet>
@@ -100,13 +122,9 @@
                 <h:commandButton action="#{autoBean.eliminar(auto.idVehiculos)}" value="Eliminar" styleClass="my-button-lila"></h:commandButton>
             </h:column>
         </h:dataTable>
+        <h:commandButton style="background-color: #d09be5; color: #fff; padding: 8px 16px; border: 2px solid #cb99e3; cursor: pointer;" value="Nuevo Vehiculo" action="#{autoBean.nuevo()}" />
+
     </h:form>
-    <ui:define name="content">
-        <div class="background-div">
-            <p:graphicImage  value="images/aveo.jpg" width="600" height="400" />
-            <!-- Aquí puedes colocar cualquier otro contenido que desees dentro del div -->
-        </div>
-    </ui:define>
 </f:view>
 
 </html>
