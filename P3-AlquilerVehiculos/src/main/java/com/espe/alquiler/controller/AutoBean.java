@@ -25,7 +25,7 @@ public class AutoBean {
 
     public String index(){
 
-        return "/index.xhtml";
+        return "/indexAuto.xhtml";
     }
 
 
@@ -37,19 +37,19 @@ public class AutoBean {
         // Pasar el objeto por medio del SessionMap hacia la vista
         sessionMap.put("auto", auto);
         System.out.println(auto);
-        return "/editar.xhtml";
+        return "/editarAuto.xhtml";
     }
 
     public String actualizar(Auto auto) {
         autoDAO.editar(auto);
-        return "index.xhtml";
+        return "indexAuto.xhtml";
     }
 
 
 
     public String eliminar(int id) {
         autoDAO.eliminar(id);
-        return "index.xhtml";
+        return "indexAuto.xhtml";
     }
 
     public String nuevo() {
@@ -58,11 +58,11 @@ public class AutoBean {
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         // Pasar el objeto por medio del SessionMap hacia la vista
         sessionMap.put("auto", oAuto);
-        return "nuevo.xhtml";
+        return "nuevoAuto.xhtml";
     }
     public String guardar(Auto auto){
         autoDAO.guardar(auto);
-        return "index.xhtml";
+        return "indexAuto.xhtml";
     }
 
 
