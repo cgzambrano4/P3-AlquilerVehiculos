@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: 59399
+  Date: 31/8/2023
+  Time: 18:54
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <p:link rel="stylesheet" type="text/css" href="#{request.contextPath}/primefaces.css"/>
+        <style type="text/css">
+            /* Estilos para el formulario */
+            .my-form {
+                background-color: #c474ea; /* Fondo gris claro */
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+                text-align: center; /* Alinear el contenido al centro */
+            }
+
+            /* Estilos para los campos de entrada */
+            .input-field {
+                background-color: #dcb8f1; /* Fondo blanco */
+                border: 1px solid #ccc;
+                padding: 10px;
+                border-radius: 5px;
+                width: 100%;
+                margin-bottom: 10px;
+                font-size: 16px; /* Tamaño de fuente */
+            }
+
+            /* Estilos para el botón de guardar */
+            .save-button {
+                background-color: #9b59b6; /* Fondo color lila */
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold; /* Texto en negrita */
+                transition: background-color 0.3s; /* Transición suave del color de fondo */
+            }
+
+            .save-button:hover {
+                background-color: #8e44ad; /* Cambio de color al pasar el ratón */
+            }
+        </style>
+    </h:head>
+    <h:body style="background-image: url('https://img.freepik.com/vector-gratis/fondo-textura-acuarela-color-pastel-suave_1017-39359.jpg?w=2000'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <h:form>
+            <p:panelGrid columns="2" styleClass="my-form">
+                <f:facet name="header" style="background-color: #9b59b6;">
+                    <h:outputText value="Registrar Auto de alquiler" style="font-size: 24px; color: #9b59b6; font-weight: bold; margin-bottom: 20px;"/>
+                </f:facet>
+                <h:outputText value="Marca"/>
+                <p:inputText value="#{auto.marca}" styleClass="input-field"/>
+
+                <h:outputText value="Modelo"/>
+                <p:inputText value="#{auto.modelo}" styleClass="input-field"/>
+
+                <h:outputText value="Año"/>
+                <p:inputText value="#{auto.anio}" styleClass="input-field"/>
+
+                <h:outputText value="Tipo"/>
+                <p:inputText value="#{auto.tipo}" styleClass="input-field"/>
+
+                <h:outputText value="Placa"/>
+                <p:inputText value="#{auto.placa}" styleClass="input-field"/>
+
+                <h:outputText value="Disponibilidad"/>
+                <p:selectBooleanCheckbox value="#{auto.disponibilidad}" styleClass="input-field"/>
+
+                <f:facet name="footer">
+                    <h:commandButton value="Guardar" action="#{autoBean.guardar(auto)}" styleClass="save-button"/>
+                    <h:commandButton value="Atrás" action="indexAuto.xhtml" styleClass="save-button"/>
+                </f:facet>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

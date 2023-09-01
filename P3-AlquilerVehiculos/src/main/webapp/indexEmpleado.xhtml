@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <p:link rel="stylesheet" type="text/css" href="#{request.contextPath}/primefaces.css" />
+        <style type="text/css">
+            /* Estilos para la tabla */
+            .my-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Arial, sans-serif;
+            }
+
+            .my-table th {
+                background-color: #8e44ad;
+                color: #fff;
+                text-align: left;
+                padding: 10px;
+                border: 1px solid #008589;
+            }
+
+            .my-table td {
+                padding: 8px;
+                border: 1px solid #ddd;
+            }
+
+            .my-table tr:nth-child(even) {
+                background-color: #a569bd;
+            }
+
+            .my-table tr:hover {
+                background-color: #913d88;
+            }
+
+            .my-button-lila {
+                background-color: #e6e6e6; /* Color de fondo lila claro */
+                color: #9b59b6; /* Color del texto lila */
+                padding: 8px 16px; /* Espaciado interno */
+                border: 2px solid #9b59b6; /* Borde lila */
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer; /* Cambia el cursor al pasar el ratón */
+                font-weight: bold; /* Texto en negrita */
+            }
+
+            .my-button-rosa {
+                background-color: #f2c9e1; /* Color de fondo rosa palo */
+                color: rgba(209, 60, 232, 0.99); /* Color del texto rosa palo */
+                padding: 8px 16px; /* Espaciado interno */
+                border: 2px solid #c686d5; /* Borde rosa palo */
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer; /* Cambia el cursor al pasar el ratón */
+                font-weight: bold; /* Texto en negrita */
+            }
+        </style>
+    </h:head>
+    <p:menubar>
+        <p:menuitem value="Dashboard" url="dashboard.xhtml" />
+    </p:menubar>
+    <h2>
+        <h:outputText value="Lista de Empleados" />
+    </h2>
+    <h:form>
+        <!--agregado-->
+        <p:commandButton style="background-color: #d09be5; color: #fff; padding: 8px 16px; border: 2px solid #cb99e3; cursor: pointer;" value="Nuevo Empleado" action="#{empleadoBean.nuevo()}" />
+        <h:dataTable value="#{empleadoBean.obtenerEmpleados()}" var="empleado" styleClass="tab">
+            <h:column>
+                <f:facet name="header">Nombres</f:facet>
+                <h:outputText value="#{empleado.nombres}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Apellidos</f:facet>
+                <h:outputText value="#{empleado.apellidos}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Direccion</f:facet>
+                <h:outputText value="#{empleado.direccion}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Telefono</f:facet>
+                <h:outputText value="#{empleado.telefono}"></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{empleado.correoElectronico}"></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Fecha de contrato</f:facet>
+                <h:outputText value="#{empleado.fechaContrato}"></h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Opciones</f:facet>
+                <h:commandButton action="#{empleadoBean.editar(empleado.idEmpleados)}" value="Editar" styleClass="my-button-rosa"></h:commandButton>
+                <h:commandButton action="#{empleadoBean.eliminar(empleado.idEmpleados)}" value="Eliminar" styleClass="my-button-lila"></h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</f:view>
+</html>

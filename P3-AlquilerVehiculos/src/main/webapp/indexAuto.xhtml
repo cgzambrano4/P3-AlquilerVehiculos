@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <p:link rel="stylesheet" type="text/css" href="#{request.contextPath}/primefaces.css"/>
+        <style type="text/css">
+            /* Estilos para la tabla */
+            .my-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Arial, sans-serif;
+            }
+
+            .my-table th {
+                background-color: #c474ea;
+                color: #fff;
+                text-align: left;
+                padding: 10px;
+                border: 1px solid #008589;
+            }
+
+            .my-table td {
+                padding: 8px;
+                border: 1px solid #ddd;
+            }
+
+            .my-table tr:nth-child(even) {
+                background-color: #a569bd;
+            }
+
+            .my-table tr:hover {
+                background-color: #913d88;
+            }
+
+            .my-button-lila {
+                background-color: #e6e6e6; /* Color de fondo lila claro */
+                color: #9b59b6; /* Color del texto lila */
+                padding: 8px 16px; /* Espaciado interno */
+                border: 2px solid #9b59b6; /* Borde lila */
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer; /* Cambia el cursor al pasar el ratón */
+                font-weight: bold; /* Texto en negrita */
+            }
+
+            .my-button-rosa {
+                background-color: #f2c9e1; /* Color de fondo rosa palo */
+                color: rgba(209, 60, 232, 0.99); /* Color del texto rosa palo */
+                padding: 8px 16px; /* Espaciado interno */
+                border: 2px solid #c686d5; /* Borde rosa palo */
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer; /* Cambia el cursor al pasar el ratón */
+                font-weight: bold; /* Texto en negrita */
+            }
+        </style>
+    </h:head>
+    <p:menubar>
+        <p:menuitem value="Dashboard" url="dashboard.xhtml" />
+    </p:menubar>
+    <h2>
+        <h:outputLabel value="Lista de Autos"/>
+    </h2>
+
+    <div style="display: flex; gap: 10px; justify-content: center; align-items: center; background-color: #f2f2f2; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+        <!-- Cuadro 1 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://tomebamba.com.ec/assets/media/content/b-posts/fortuner/imagen1.jpg'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+
+        <!-- Cuadro 2 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://www.ambacar.ec/wp-content/uploads/2021/05/ambacar-suv-dfsk-glory-560-color-negro.jpeg'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+
+        <!-- Cuadro 3 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://www.ramlatam.com/gt/wp-content/uploads/sites/13/vehiculos/ram-1500/ram-trx-e1663941203460.png'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+
+        <!-- Cuadro 4 -->
+        <div style="flex: 1; height: 200px; background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMSOVXOg_wYx0J6M4PHttwYLSbKH_iEag8tKdZFKCSJLVZRB4qVGcP5U7p98YbxQcj01BmlQzrehzeMD_CD7Q94BxBdzqaojbmEbCepRtvVK5umoa24c93Gu3tbiQ0mx0vpeneFBSvDkoZcNsK2UhbY6XONrmDD3-dMH5UTsS6b11Gg-4iivzzvwPh/s4134/Lanzamiento:%20Kia%20Sportage%20MY2023%20Precios%200km%202022%202023%20Autoblog%20Uruguay3.jpeg'); background-size: cover; background-position: center;">
+            <!-- Contenido dentro del cuadro si es necesario -->
+        </div>
+    </div>
+
+
+    <h:form>
+        <h:dataTable value="#{autoBean.obtenerAuto()}" var="auto" styleClass="my-table" border="1">
+            <!--  <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{auto.idVehiculos}"></h:outputText>
+            </h:column>-->
+            <h:column>
+                <f:facet name="header">Marca</f:facet>
+                <h:outputText value="#{auto.marca}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Modelo</f:facet>
+                <h:outputText value="#{auto.modelo}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Año</f:facet>
+                <h:outputText value="#{auto.anio}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Tipo</f:facet>
+                <h:outputText value="#{auto.tipo}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Placa</f:facet>
+                <h:outputText value="#{auto.placa}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Disponibilidad</f:facet>
+                <h:outputText value="#{auto.disponibilidad ? 'Disponible' : 'No Disponible'}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Acciones</f:facet>
+                <h:commandButton action="#{autoBean.editar(auto.idVehiculos)}" value="Editar" styleClass="my-button-rosa"></h:commandButton>
+                <h:commandButton action="#{autoBean.eliminar(auto.idVehiculos)}" value="Eliminar" styleClass="my-button-lila"></h:commandButton>
+            </h:column>
+        </h:dataTable>
+        <h:commandButton style="background-color: #d09be5; color: #fff; padding: 8px 16px; border: 2px solid #cb99e3; cursor: pointer;" value="Nuevo Vehiculo" action="#{autoBean.nuevo()}" />
+    </h:form>
+</f:view>
+
+</html>
