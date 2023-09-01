@@ -37,13 +37,33 @@
             .my-table tr:hover {
                 background-color: #913d88;
             }
+
+            .my-button-lila {
+                background-color: #e6e6e6; /* Color de fondo lila claro */
+                color: #9b59b6; /* Color del texto lila */
+                padding: 8px 16px; /* Espaciado interno */
+                border: 2px solid #9b59b6; /* Borde lila */
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer; /* Cambia el cursor al pasar el ratón */
+                font-weight: bold; /* Texto en negrita */
+            }
+
+            .my-button-rosa {
+                background-color: #f2c9e1; /* Color de fondo rosa palo */
+                color: rgba(209, 60, 232, 0.99); /* Color del texto rosa palo */
+                padding: 8px 16px; /* Espaciado interno */
+                border: 2px solid #c686d5; /* Borde rosa palo */
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer; /* Cambia el cursor al pasar el ratón */
+                font-weight: bold; /* Texto en negrita */
+            }
         </style>
     </h:head>
     <h2>
         <h:outputLabel value="Lista de Autos"/>
     </h2>
     <h:form>
-        <h:commandButton style="background-color: #9b59b6; color: #fff; padding: 8px 16px; border: 2px solid #9b59b6; cursor: pointer;" value="Nuevo Vehiculo" action="#{autoBean.nuevo()}" />
+        <h:commandButton style="background-color: #d09be5; color: #fff; padding: 8px 16px; border: 2px solid #cb99e3; cursor: pointer;" value="Nuevo Vehiculo" action="#{autoBean.nuevo()}" />
 
         <h:dataTable value="#{autoBean.obtenerAuto()}" var="auto" styleClass="my-table" border="1">
             <!--  <h:column>
@@ -76,8 +96,8 @@
             </h:column>
             <h:column>
                 <f:facet name="header">Acciones</f:facet>
-                <h:commandButton action="#{autoBean.editar(auto.idVehiculos)}" value="Editar"></h:commandButton>
-                <h:commandButton action="#{autoBean.eliminar(auto.idVehiculos)}" value="Eliminar"></h:commandButton>
+                <h:commandButton action="#{autoBean.editar(auto.idVehiculos)}" value="Editar" styleClass="my-button-rosa"></h:commandButton>
+                <h:commandButton action="#{autoBean.eliminar(auto.idVehiculos)}" value="Eliminar" styleClass="my-button-lila"></h:commandButton>
             </h:column>
         </h:dataTable>
     </h:form>
