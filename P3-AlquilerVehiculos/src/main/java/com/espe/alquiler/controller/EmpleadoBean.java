@@ -4,13 +4,11 @@ package com.espe.alquiler.controller;
 
 import com.espe.alquiler.dao.IEmpleadoDao;
 import com.espe.alquiler.idao.EmpleadoDaoImpl;
-import com.espe.alquiler.model.Auto;
 import com.espe.alquiler.model.Empleado;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,10 +30,7 @@ public class EmpleadoBean {
     public String editar(int id) {
         Empleado empleado;
         empleado = empleadoDao.buscar(id);
-
-        //crear una coleccion tipo map
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-        //pasar el objeto por medio del sessionMap hacia la vista
         sessionMap.put("empleado", empleado);
         return "/editarEmpleado.xhtml";
     }
@@ -52,12 +47,9 @@ public class EmpleadoBean {
         return "/indexEmpleado.xhtml";
     }
 
-    //agregado
     public String nuevo() {
         Empleado oEmpleado = new Empleado();
-        //crear una coleccion tipo map
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-        //pasar el objeto por medio del sessionMap hacia la vista
         sessionMap.put("empleado", oEmpleado);
         return "/nuevoEmpleado.xhtml";
     }

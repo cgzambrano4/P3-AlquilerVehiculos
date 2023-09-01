@@ -9,11 +9,9 @@
 </h:head>
 <h:body>
     <!-- Barra de navegación -->
-    <p:menubar>
         <p:menuitem value="Dashboard" url="dashboard.xhtml" />
         <p:menuitem value="Empleados" url="indexEmpleado.xhtml" />
         <p:menuitem value="Autos" url="indexAuto.xhtml" />
-    </p:menubar>
 
     <!-- Contenido del dashboard -->
     <div id="content">
@@ -22,13 +20,13 @@
         <!-- Aquí muestra los datos de la factura -->
         <div id="invoice">
             <h2>Alquileres</h2>
-            <p>Cliente: #{factura.cliente.nombres}</p>
-            <p>Vehículo: #{factura.auto.marca}</p>
-            <p>Modelo del Vehículo: #{factura.auto.modelo}</p>
-            <p>Fecha de alquiler: #{factura.fechaAlqiler}</p>
-            <p>Fecha de devolución: #{factura.fechaDevolucion}</p>
-            <p>Atendido por: #{factura.empleado.nombres} #{factura.empleado.apellidos}</p>
-            <p>Total del alquiler: #{factura.total}</p>
+            <p>Cliente: #{facturas.cliente.nombres}</p>
+            <p>Vehículo: #{facturas.auto.marca}</p>
+            <p>Modelo del Vehículo: #{facturas.auto.modelo}</p>
+            <p>Fecha de alquiler: #{facturas.fechaAlqiler}</p>
+            <p>Fecha de devolución: #{facturas.fechaDevolucion}</p>
+            <p>Atendido por: #{facturas.empleado.nombres} #{facturas.empleado.apellidos}</p>
+            <p>Total del alquiler: #{facturas.total}</p>
             <!-- Agrega más campos de factura aquí -->
         </div>
     </div>

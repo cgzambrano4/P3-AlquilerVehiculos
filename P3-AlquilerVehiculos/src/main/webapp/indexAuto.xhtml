@@ -59,9 +59,7 @@
             }
         </style>
     </h:head>
-    <p:menubar>
         <p:menuitem value="Dashboard" url="dashboard.xhtml" />
-    </p:menubar>
     <h2>
         <h:outputLabel value="Lista de Autos"/>
     </h2>
@@ -126,6 +124,7 @@
             </h:column>
         </h:dataTable>
         <h:commandButton style="background-color: #d09be5; color: #fff; padding: 8px 16px; border: 2px solid #cb99e3; cursor: pointer;" value="Nuevo Vehiculo" action="#{autoBean.nuevo()}" />
+
     </h:form>
 </f:view>
 
