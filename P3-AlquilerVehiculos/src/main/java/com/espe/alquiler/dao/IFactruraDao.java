@@ -1,7 +1,7 @@
-package com.espe.alquiler.p3alquilervehiculos.Facturas.Dao;
+package com.espe.alquiler.dao;
 
 
-import com.espe.alquiler.p3alquilervehiculos.Facturas.Modelo.Facturas;
+import com.espe.alquiler.model.Facturas;
 
 import java.util.List;
 

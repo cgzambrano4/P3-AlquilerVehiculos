@@ -1,8 +1,8 @@
 package com.espe.alquiler.idao;
 
 import com.espe.alquiler.dao.IAutoDAO;
-import com.espe.alquiler.models.Auto;
-import com.espe.alquiler.models.JPAUtil;
+import com.espe.alquiler.model.Auto;
+import com.espe.alquiler.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 

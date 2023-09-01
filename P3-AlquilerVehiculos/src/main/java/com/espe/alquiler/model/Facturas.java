@@ -1,4 +1,4 @@
-package com.espe.alquiler.p3alquilervehiculos.Facturas.Modelo;
+package com.espe.alquiler.model;
 
 import jakarta.persistence.*;
 

@@ -2,7 +2,7 @@ package com.espe.alquiler.controller;
 
 import com.espe.alquiler.dao.IAutoDAO;
 import com.espe.alquiler.idao.AutoDAOImpl;
-import com.espe.alquiler.models.Auto;
+import com.espe.alquiler.model.Auto;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
@@ -24,10 +24,8 @@ public class AutoBean {
 
 
     public String index(){
-
         return "/indexAuto.xhtml";
     }
-
 
     public String editar (int id){
         Auto auto;
@@ -42,14 +40,12 @@ public class AutoBean {
 
     public String actualizar(Auto auto) {
         autoDAO.editar(auto);
-        return "indexAuto.xhtml";
+        return "/indexAuto.xhtml";
     }
-
-
 
     public String eliminar(int id) {
         autoDAO.eliminar(id);
-        return "indexAuto.xhtml";
+        return "/indexAuto.xhtml";
     }
 
     public String nuevo() {
@@ -58,12 +54,11 @@ public class AutoBean {
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         // Pasar el objeto por medio del SessionMap hacia la vista
         sessionMap.put("auto", oAuto);
-        return "nuevoAuto.xhtml";
+        return "/nuevoAuto.xhtml";
     }
+
     public String guardar(Auto auto){
         autoDAO.guardar(auto);
-        return "indexAuto.xhtml";
+        return "/indexAuto.xhtml";
     }
-
-
 }

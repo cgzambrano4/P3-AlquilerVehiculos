@@ -1,4 +1,4 @@
-package com.espe.alquiler.models;
+package com.espe.alquiler.model;
 
 import jakarta.persistence.*;
 

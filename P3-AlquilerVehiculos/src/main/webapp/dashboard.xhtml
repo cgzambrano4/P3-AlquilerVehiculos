@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Dashboard</title>
+    <!-- Agrega aquí el enlace al tema de PrimeFaces si lo has configurado -->
+</h:head>
+<h:body>
+    <!-- Barra de navegación -->
+        <p:menuitem value="Dashboard" url="dashboard.xhtml" />
+        <p:menuitem value="Empleados" url="indexEmpleado.xhtml" />
+        <p:menuitem value="Autos" url="indexAuto.xhtml" />
+
+    <!-- Contenido del dashboard -->
+    <div id="content">
+        <h1>Dashboard</h1>
+
+        <!-- Aquí muestra los datos de la factura -->
+        <div id="invoice">
+            <h2>Alquileres</h2>
+            <p>Cliente: #{facturas.cliente.nombres}</p>
+            <p>Vehículo: #{facturas.auto.marca}</p>
+            <p>Modelo del Vehículo: #{facturas.auto.modelo}</p>
+            <p>Fecha de alquiler: #{facturas.fechaAlqiler}</p>
+            <p>Fecha de devolución: #{facturas.fechaDevolucion}</p>
+            <p>Atendido por: #{facturas.empleado.nombres} #{facturas.empleado.apellidos}</p>
+            <p>Total del alquiler: #{facturas.total}</p>
+            <!-- Agrega más campos de factura aquí -->
+        </div>
+    </div>
+</h:body>
+</html>

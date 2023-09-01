@@ -1,8 +1,8 @@
-package com.espe.alquiler.p3alquilervehiculos.Facturas.Idao;
+package com.espe.alquiler.idao;
 
-import com.espe.alquiler.p3alquilervehiculos.Facturas.Dao.IFactruraDao;
-import com.espe.alquiler.p3alquilervehiculos.Facturas.Modelo.Facturas;
-import com.espe.alquiler.p3alquilervehiculos.Facturas.Modelo.JPAUtil;
+import com.espe.alquiler.dao.IFactruraDao;
+import com.espe.alquiler.model.Facturas;
+import com.espe.alquiler.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -30,9 +30,6 @@ public class FacturaDaoImpl implements IFactruraDao {
 
     }
 
-
-
-
     @Override
     public void guardarFactura(Facturas factura) {
         entityManager.getTransaction().begin();
@@ -40,15 +37,12 @@ public class FacturaDaoImpl implements IFactruraDao {
         entityManager.getTransaction().commit();
     }
 
-
     @Override
-
     public void editar(Facturas factura) {
         entityManager.getTransaction().begin();
         entityManager.merge(factura);
         entityManager.getTransaction().commit();
     }
-
 
     @Override
     public void eliminar(int id) {
@@ -56,10 +50,6 @@ public class FacturaDaoImpl implements IFactruraDao {
         oFacturas = entityManager.find(Facturas.class, id);
         entityManager.getTransaction().begin();
         entityManager.remove(oFacturas);
-
         entityManager.getTransaction().commit();
-
     }
-
-
 }

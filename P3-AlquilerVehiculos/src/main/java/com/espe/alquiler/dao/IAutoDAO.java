@@ -1,6 +1,6 @@
 package com.espe.alquiler.dao;
 
-import com.espe.alquiler.models.Auto;
+import com.espe.alquiler.model.Auto;
 
 import java.util.List;
 
